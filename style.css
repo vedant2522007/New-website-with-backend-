@@ -1,0 +1,321 @@
+/* --- General Styles & Body Reset --- */
+:root {
+    --primary-color: #6a11cb;
+    --secondary-color: #2575fc;
+    --text-color: #333;
+    --light-text: #fff;
+    --bg-color: #f5f7fa;
+    --card-bg: #fff;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    background-color: var(--bg-color);
+}
+
+/* --- Animated Blob Background --- */
+#blob-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(circle at 75% 25%, var(--primary-color), transparent 50%),
+                radial-gradient(circle at 25% 75%, var(--secondary-color), transparent 50%);
+    animation: blobAnimation 15s ease-in-out infinite;
+}
+
+@keyframes blobAnimation {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* --- Reusable Components --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section {
+    padding: 6rem 0;
+    position: relative;
+}
+
+.section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-color);
+}
+
+.section-description {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    font-weight: 700;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.primary-btn {
+    background: var(--primary-color);
+    color: var(--light-text);
+}
+
+.primary-btn:hover {
+    background: var(--secondary-color);
+}
+
+/* --- Header & Navigation --- */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    box-shadow: 0 2px 15px var(--shadow-color);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 700;
+    margin-left: 2rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: var(--secondary-color);
+}
+
+.burger { display: none; cursor: pointer; }
+.burger div { width: 25px; height: 3px; background-color: var(--text-color); margin: 5px; transition: all 0.3s ease; }
+
+/* --- Hero Section --- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px var(--shadow-color);
+}
+
+.hero-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: var(--primary-color);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin: 1rem auto 2rem;
+    color: #555;
+}
+
+/* --- About Section --- */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.about-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px var(--shadow-color);
+    text-align: center;
+}
+
+.about-card h3 { color: var(--secondary-color); font-family: 'Playfair Display', serif; margin-bottom: 0.5rem; }
+
+/* --- Events Section --- */
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.event-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px var(--shadow-color);
+}
+
+.event-card h3 { color: var(--primary-color); font-family: 'Playfair Display', serif; margin-bottom: 0.5rem; }
+.event-card .event-details { margin-bottom: 1rem; color: #666; }
+.event-card .event-details i { color: var(--secondary-color); margin-right: 0.5rem; }
+
+/* --- Team Section --- */
+.team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.team-member {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px var(--shadow-color);
+    text-align: center;
+}
+
+.team-member h3 { color: var(--primary-color); font-family: 'Playfair Display', serif; margin-bottom: 0.5rem; }
+.team-member p { color: #666; }
+
+/* --- Contact Section --- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.contact-info {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px var(--shadow-color);
+}
+
+.contact-info p i { color: var(--secondary-color); margin-right: 1rem; }
+.contact-info a { text-decoration: none; color: var(--text-color); }
+.contact-info a:hover { color: var(--primary-color); }
+
+.contact-form-container {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px var(--shadow-color);
+}
+
+.form-group { margin-bottom: 1rem; }
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.contact-form-container button { width: 100%; }
+
+/* --- Footer --- */
+footer {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+/* --- Admin Panel --- */
+.admin-panel-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.admin-panel {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    text-align: center;
+}
+
+.admin-panel h2 { color: var(--primary-color); font-family: 'Playfair Display', serif; margin-bottom: 1.5rem; }
+.admin-panel input, .admin-panel select, .admin-panel textarea { width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 1rem; }
+.admin-panel .btn { width: 100%; margin-top: 1rem; }
+.error-message { color: red; font-weight: 700; margin-top: 1rem; }
+.event-management-section h4 { margin-top: 1.5rem; margin-bottom: 1rem; color: var(--secondary-color); }
+.current-events-list { list-style: none; padding: 0; }
+.current-events-list li { background-color: #f0f0f0; padding: 1rem; margin-bottom: 1rem; border-radius: 5px; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; }
+.current-events-list li .delete-btn { background-color: #e74c3c; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .burger { display: block; }
+    .nav-links {
+        position: absolute;
+        right: 0;
+        top: 80px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        width: 100%;
+        text-align: center;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in;
+        flex-direction: column;
+    }
+    .nav-links.nav-active { transform: translateX(0); }
+    .nav-links li { margin: 0; padding: 1rem 0; border-bottom: 1px solid #eee; }
+    .hero-content h2 { font-size: 2.5rem; }
+    .hero-content p { font-size: 1rem; }
+    .hero-content .btn { margin: 0.5rem 0; }
+}
